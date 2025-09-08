@@ -1,24 +1,20 @@
-body { 
-    background: #cccccc; /* Define a cor de fundo do corpo da página como cinza claro (#cccccc) */
-    font: normal 15pt Arial; /* Define a fonte como Arial, tamanho 15pt, e estilo normal */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ff9c9c;
 }
 
-header { 
-    color: white; /* Define a cor do texto no cabeçalho como branco */
-    text-align: center; /* Alinha o texto do cabeçalho ao centro */
+.container {
+    text-align: center;
 }
 
-section { 
-    background: white; /* Define o fundo da seção como branco */
-    border-radius: 10px; /* Adiciona bordas arredondadas com raio de 10px */
-    padding: 15px; /* Adiciona um espaçamento interno de 15px em todos os lados da seção */
-    width: 500px; /* Define a largura da seção para 500px */
-    margin: auto; /* Centraliza a seção horizontalmente na página */
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.329); /* Aplica uma sombra suave na seção, criando um efeito de profundidade */
-}
-
-footer { 
-    color: white; /* Define a cor do texto do rodapé como branco */
-    text-align: center; /* Alinha o texto do rodapé ao centro */
-    font-style: italic; /* Define o estilo da fonte do rodapé como itálico */
+img {
+    width: 300px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+    margin-top: 20px;
+    border-radius: 50%;
 }

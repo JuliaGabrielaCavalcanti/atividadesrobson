@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguel de Veículos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF8E1; /* Amarelo clarinho */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #007BFF; /* Azul */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+        }
+        main {
+            margin-top: 60px;
+            padding: 20px;
+            border-radius: 8px;
+            /* Removido box-shadow para não ter borda */
+        }
+        .hidden {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .vehicle {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .vehicle img {
+            width: 200px;
+            height: auto;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        #login-message, #rental-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Aluguel de Veículos</h1>
+</header>
+
+<main>
+    <div id="login-section">
+        <h2>Login</h2>
+        <p>Por favor, insira suas credenciais:</p>
+        <div class="form-group">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" />
+        </div>
+        <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" />
+        </div>
+        <button onclick="login()">Entrar</button>
+        <p id="login-message" class="hidden"></p>
+    </div>
+
+    <div id="rental-section" class="hidden">
+        <h2>Escolha seu Veículo</h2>
+        <div class="vehicle">
+            <img src="carro1.webp" alt="Carro 1">
+            <label>
+                <input type="radio" name="vehicle" value="carro1" /> Carro 1
+            </label>
+        </div>
+        <div class="vehicle">
+            <img src="carro2.webp" alt="Carro 2">
+            <label>
+                <input type="radio" name="vehicle" value="carro2" /> Carro 2
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="driver-name">Nome do Motorista:</label>
+            <input type="text" id="driver-name" />
+        </div>
+        <div class="form-group">
+            <label for="cnh-number">Número da CNH:</label>
+            <input type="text" id="cnh-number" />
+        </div>
+        <button onclick="finalizeRental()">Finalizar Pedido</button>
+        <p id="rental-message" class="hidden"></p>
+    </div>
+</main>
+
+<script>
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        if (username === 'Admin' && password === '123@4') {
+            document.getElementById('login-section').classList.add('hidden');
+            document.getElementById('rental-section').classList.remove('hidden');
+        } else {
+            document.getElementById('login-message').innerText = 'Usuário ou senha incorretos!';
+            document.getElementById('login-message').classList.remove('hidden');
+        }
+    }
+
+    function finalizeRental() {
+        const driverName = document.getElementById('driver-name').value;
+        const cnhNumber = document.getElementById('cnh-number').value;
+        const vehicle = document.querySelector('input[name="vehicle"]:checked');
+        
+        if (driverName && cnhNumber && vehicle) {
+            document.getElementById('rental-message').innerText = 'Aluguel efetuado com sucesso!';
+            document.getElementById('rental-message').classList.remove('hidden');
+        } else {
+            alert('Por favor, preencha todos os campos do motorista e escolha um veículo.');
+        }
+    }
+</script>
+
+</body>
+</html>
