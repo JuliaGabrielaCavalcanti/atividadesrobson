@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculando velocidade com funcao SE (if)</title>
+</head>
+
+<body>
+    <h1>Sistema de Multas</h1>
+    Velocidade do carro: <input type="number" name="txtvel" id="txtvel">Km/h
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res">
+
+    </div>
+    <script>
+        function calcular() { // Soma os dois parâmetros
+            var txtv = window.document.querySelector("input#txtvel") // Seleciona o elemento <input> com id "txtvel" e armazena na variável txtv.
+            var res = window.document.querySelector("div#res") // Seleciona o elemento <div> com id "res" e armazena na variável res.
+            var vel = Number(txtv.value)  // Converte o valor do campo de entrada txtv para um número e armazena na variável vel.
+            res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel}</strong>Km/h.</p>` // Substitui o conteúdo HTML do elemento res para mostrar a velocidade atual formatada em um parágrafo.
+            if (vel > 60) { // Verifica se o valor da variável vel é maior que 60; se verdadeiro, executa o bloco de código seguinte.
+                res.innerHTML += `<p>Você está <strong>multado</strong> por excesso de velocidade` // Adiciona uma nova mensagem ao conteúdo HTML do elemento res, informando que o usuário está multado por excesso de velocidade.
+            }
+            res.innerHTML += `<p>Dirija sempre com cinto de segurança!` // Adiciona uma mensagem ao conteúdo HTML do elemento res, recomendando que o usuário dirija sempre usando cinto de segurança.
+        }
+    </script>
+</body>
+
+</html>

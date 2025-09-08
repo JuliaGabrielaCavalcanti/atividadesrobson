@@ -1,0 +1,30 @@
+<!DOCTYPE html> <!-- Define que o documento é HTML5 -->
+<html lang="pt-BR"> <!-- Define que o idioma da página é português do Brasil -->
+<head> <!-- Início da seção de metadados -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna a página responsiva -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Força o IE a usar o modo mais recente -->
+    <title>Vamos contar</title> <!-- Título da página, mostrado na aba do navegador -->
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS externo -->
+</head> <!-- Fim da seção de metadados -->
+<body> <!-- Início do conteúdo da página -->
+    <header> <!-- Cabeçalho da página -->
+        <h1>Vamos contar</h1> <!-- Título principal da página -->
+    </header>
+    <section> <!-- Seção que contém os campos de entrada e botão -->
+        <div id="dados"> <!-- Div que agrupa os campos de entrada -->
+            <p> Início: <input type="number" id="start"></p> <!-- Campo para o início da contagem -->
+            <p>Fim: <input type="number" id="end"></p> <!-- Campo para o fim da contagem -->
+            <p>Passo: <input type="number" id="step"></p> <!-- Campo para o passo da contagem -->
+            <p><input type="button" value="contar" onclick="contar()"></p> <!-- Botão que chama a função contar() -->
+        </div>
+        <div id="result"> <!-- Div onde o resultado será mostrado -->
+            <p>Preparando a contagem...</p> <!-- Texto inicial antes da contagem -->
+        </div>
+    </section>
+    <footer> <!-- Rodapé da página -->
+        <p>&copy; Polo 2025</p> <!-- Texto de copyright -->
+    </footer>
+    <script src="scriptt.js"></script> <!-- Link para o arquivo JavaScript -->
+</body>
+</html>

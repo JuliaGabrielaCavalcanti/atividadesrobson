@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Página Inicial</title>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8d2d2; /* Fundo cinza claro */
+            color: #333; /* Cor do texto */
+            margin: 0;
+            padding: 20px;
+            text-align: center; /* Centraliza o texto */
+        }
+        h1 {
+            color: #007bff; /* Azul do título */
+        }
+        a {
+            text-decoration: none; /* Remove o sublinhado */
+            color: #ff69b4; /* Rosa */
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 1px solid #ff69b4; /* Borda rosa */
+            border-radius: 5px; /* Bordas arredondadas */
+            transition: background-color 0.3s, color 0.3s; /* Transição suave */
+        }
+        a:hover {
+            background-color: #ff69b4; /* Fundo rosa ao passar o mouse */
+            color: white; /* Texto branco ao passar o mouse */
+        }
+        h2, h3 {
+            margin-top: 20px;
+            color: #555; /* Cor dos subtítulos */
+        }
+        p {
+            line-height: 1.6; /* Aumenta o espaçamento entre linhas */
+        }
+        pre {
+            background-color: #f9f9f9; /* Fundo claro para código */
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto; /* Para scroll em casos de código longo */
+        }
+   </style>
+</head>
+
+<body>
+   <h1>Bem-vindo ao meu site!</h1>
+   <p>Explore a aplicação:</p>
+   <hr>
+
+   <h2>Python e HTML Juntos: Uma Dupla Poderosa na Web</h2>
+   <p>Python e HTML são linguagens com propósitos diferentes, mas quando combinadas, elas se tornam a base para a maioria dos sites e aplicações web que usamos todos os dias. Pense no HTML como o esqueleto e a pele de um site, e no Python como o cérebro que faz tudo funcionar por trás das cenas.</p>
+
+   <h3>O que é HTML? (A Estrutura da Página)</h3>
+   <p>HTML (HyperText Markup Language) é a linguagem padrão para criar páginas web. Ele define a estrutura e o conteúdo de uma página.</p>
+   <p><strong>Exemplo Simples de HTML:</strong></p>
+   <pre>
+   &lt;!DOCTYPE html&gt;
+   &lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;h1&gt;Bem-vindo ao meu site!&lt;/h1&gt;
+      &lt;p&gt;Este é um parágrafo de exemplo.&lt;/p&gt;
+      &lt;a href="https://www.google.com"&gt;Ir para o Google&lt;/a&gt;
+   &lt;/body&gt;
+   &lt;/html&gt;
+   </pre>
+   <p><strong>Explicação:</strong> <code>&lt;h1&gt;</code> é um título principal, <code>&lt;p&gt;</code> é um parágrafo, e <code>&lt;a&gt;</code> é um link.</p>
+
+   <h3>O que é Python? (A Lógica por Trás da Cena)</h3>
+   <p>Python é uma linguagem de programação versátil e poderosa que pode ser usada para muitas coisas, incluindo o desenvolvimento web.</p>
+   <p><strong>Exemplo Simples de Python:</strong></p>
+   <pre>
+   nome = "Mundo"
+   mensagem = f"Olá, {nome}!"
+   print(mensagem)
+   </pre>
+   <p>Este código define uma variável <code>nome</code>, cria uma mensagem personalizada e a imprime.</p>
+
+   <h3>Como Eles Trabalham Juntos? (O Backend e o Frontend)</h3>
+   <p>Aqui é onde a mágica acontece! Python e HTML se unem através de frameworks web como Flask ou Django.</p>
+   <ul>
+      <li><strong>Requisição do Navegador:</strong> O navegador envia uma "requisição" para um servidor.</li>
+      <li><strong>Processamento pelo Python:</strong> O servidor executa a lógica necessária.</li>
+      <li><strong>Geração do HTML Dinâmico:</strong> O Python modifica o código HTML e injeta os dados.</li>
+      <li><strong>Resposta ao Navegador:</strong> O Python envia o HTML "montado" de volta.</li>
+      <li><strong>Exibição no Navegador:</strong> O navegador exibe a página personalizada.</li>
+   </ul>
+
+   <h3>Exemplo Prático: Uma Página de Saudação Personalizada</h3>
+   <p>Vamos usar um micro-framework chamado Flask para ilustrar como Python gera HTML dinamicamente.</p>
+   <p><strong>Passo 1:</strong> Instale o Flask (se ainda não tiver):</p>
+   <pre>pip install Flask</pre>
+   <p><strong>Passo 2:</strong> Crie um arquivo Python (por exemplo, <code>app.py</code>):</p>
+   <pre>
+   from flask import Flask, render_template_string
+   app = Flask(__name__)
+
+   @app.route('/')
+   def home():
+      nome_usuario = "Visitante"
+      html_content = f"""
+      &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+      &lt;head&gt;
+           &lt;title&gt;Saudação Personalizada&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+           &lt;h1&gt;Olá, {nome_usuario}!&lt;/h1&gt;
+           &lt;p&gt;Bem-vindo à sua página personalizada.&lt;/p&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+      """
+      return render_template_string(html_content)
+
+   if __name__ == '__main__':
+      app.run(debug=True)
+   </pre>
+
+   <p><strong>Passo 3:</strong> Salve e execute o arquivo <code>app.py</code>:</p>
+   <pre>python app.py</pre>
+   <p>Acesse <code>http://127.0.0.1:5000/</code> no seu navegador.</p>
+
+   <h3>Ferramentas e Conceitos Chave</h3>
+   <ul>
+      <li><strong>Frameworks Web:</strong> Flask, Django (Python); React, Angular, Vue (JavaScript).</li>
+      <li><strong>Templates (Jinja2):</strong> Usados para gerar HTML dinâmico.</li>
+   </ul>
+
+   <h3>Explore a Aplicação</h3>
+   <p>Para experimentar uma aplicação prática, clique no link abaixo:</p>
+   <a href="imc.html">Ir para a Calculadora de IMC</a>
+</body>
+</html>
