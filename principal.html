@@ -30,17 +30,26 @@
         }
         .container {
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
         }
-        .column {
-            width: 45%;
-            padding: 10px;
-            text-align: left;
+        .section {
+            width: 80%; /* Ajusta a largura para que as seções fiquem mais centradas */
+            margin-bottom: 40px; /* Espaçamento entre as seções */
         }
-        .column h2 {
+        .section h2 {
             text-align: center;
             font-size: 20px;
             margin-bottom: 20px;
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .grid .button {
+            width: 250px; /* Largura fixa para os botões */
+            margin: 10px; /* Espaçamento entre os botões */
         }
     </style>
 </head>
@@ -50,10 +59,10 @@
 
     <div class="container">
         <!-- Coluna de Códigos Python -->
-        <div class="section">    
+        <div class="section">
             <h2>Códigos Py</h2>
             <div class="grid">
-            <button class="button" onclick="window.location.href='https://github.com/juliagabrielacavalcanti/atividadesrobson/blob/main/Ex010.py'">Ex010.py</button>
+                <button class="button" onclick="window.location.href='https://github.com/juliagabrielacavalcanti/atividadesrobson/blob/main/Ex010.py'">Ex010.py</button>
             <button class="button" onclick="window.location.href='https://github.com/juliagabrielacavalcanti/atividadesrobson/blob/main/atividade1.py'">atividade1.py</button>
             <button class="button" onclick="window.location.href='https://github.com/juliagabrielacavalcanti/atividadesrobson/blob/main/atividade2.py'">atividade2.py</button>
             <button class="button" onclick="window.location.href='https://github.com/juliagabrielacavalcanti/atividadesrobson/blob/main/chute.py'">chute.py</button>
@@ -77,14 +86,15 @@
             <button class="button" onclick="window.location.href='https://github.com/juliagabrielacavalcanti/atividadesrobson/blob/main/ex023.py'">ex023.py</button>
             <button class="button" onclick="window.location.href='https://github.com/juliagabrielacavalcanti/atividadesrobson/blob/main/ex17_mediaaluno.py'">ex17_mediaaluno.py</button>
             <button class="button" onclick="window.location.href='https://github.com/juliagabrielacavalcanti/atividadesrobson/blob/main/ex18_.py'">ex18_.py</button>
-        </div>
+                <!-- Continue com os outros botões de código Python -->
+            </div>
         </div>
 
         <!-- Coluna de Outros Arquivos -->
-        <div class="section">    
+        <div class="section">
             <h2>Outros Arquivos</h2>
-             <div class="grid">
-            <button class="button" onclick="window.location.href='jogo3D.html'">jogo3D.html</button>
+            <div class="grid">
+                <button class="button" onclick="window.location.href='jogo3D.html'">jogo3D.html</button>
             <button class="button" onclick="window.location.href='jogo2D.html'">jogo2D.html</button>
             <button class="button" onclick="window.location.href='imc.html'">imc.html</button>
             <button class="button" onclick="window.location.href='saudacao.html'">saudacao.html</button>
@@ -114,18 +124,22 @@
             <button class="button" onclick="window.location.href='calculadora.html'">calculadora.html</button>
             <button class="button" onclick="window.location.href='calculandovelocidade.html'">calculandovelocidade.html</button>
             <button class="button" onclick="window.location.href='calculokm.js'"> calculokm.js</button>
+                <!-- Continue com os outros botões de arquivos -->
             </div>
-            </div>
-        
-        <div class="section">    
+        </div>
+
+        <!-- Coluna de Expo -->
+        <div class="section">
             <h2>Expo</h2>
             <div class="grid">
-            <button class="button" onclick="window.location.href='https://snack.expo.dev/@m1rell4r1/5a2f8d'">Calculo km</button>
-            <button class="button" onclick="window.location.href='https://snack.expo.dev/@m1rell4r1/445bb2'">Lanchonete</button>
-            <button class="button" onclick="window.location.href='https://snack.expo.dev/@m1rell4r1/hello'">Hello!</button>
-            <button class="button" onclick="window.location.href='https://snack.expo.dev/@m1rell4r1/despesas'">App Despesas</button>
+                <button class="button" onclick="window.location.href='https://snack.expo.dev/@m1rell4r1/5a2f8d'">Calculo km</button>
+                <button class="button" onclick="window.location.href='https://snack.expo.dev/@m1rell4r1/445bb2'">Lanchonete</button>
+                <button class="button" onclick="window.location.href='https://snack.expo.dev/@m1rell4r1/hello'">Hello!</button>
+                <button class="button" onclick="window.location.href='https://snack.expo.dev/@m1rell4r1/despesas'">App Despesas</button>
             </div>
-           </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
