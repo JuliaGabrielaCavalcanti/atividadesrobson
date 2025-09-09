@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Botões</title>
+    <title>Menu de Atividades</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
         }
         .button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
+            padding: 15px 30px;
+            margin: 15px;
+            font-size: 18px;
             background-color: #4CAF50;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
@@ -28,13 +32,19 @@
 </head>
 <body>
 
-    <h1>Escolha uma página para abrir</h1>
-    
-    <!-- Botões que redirecionam para as páginas -->
-    <button class="button" onclick="window.location.href='pagina1.html'">Página 1</button>
-    <button class="button" onclick="window.location.href='pagina2.html'">Página 2</button>
-    <button class="button" onclick="window.location.href='pagina3.html'">Página 3</button>
-    <button class="button" onclick="window.location.href='pagina4.html'">Página 4</button>
-    
+    <h1>Menu de Atividades</h1>
+
+    <!-- Botões que redirecionam para as atividades -->
+    <button class="button" onclick="window.location.href='atividade1.py'">Atividade 1 - Python</button>
+    <button class="button" onclick="window.location.href='atividade2.py'">Atividade 2 - Python</button>
+    <button class="button" onclick="window.location.href='calculadora.html'">Calculadora - HTML</button>
+    <button class="button" onclick="window.location.href='calculokm.js'">Calculadora de Km - JS</button>
+    <button class="button" onclick="window.location.href='exemplo1.html'">Exemplo 1 - HTML</button>
+    <button class="button" onclick="window.location.href='exemplo2.html'">Exemplo 2 - HTML</button>
+    <button class="button" onclick="window.location.href='jogo2D.html'">Jogo 2D - HTML</button>
+    <button class="button" onclick="window.location.href='main.py'">Main - Python</button>
+    <button class="button" onclick="window.location.href='variaveis.html'">Variáveis - HTML</button>
+    <button class="button" onclick="window.location.href='validacao2506.html'">Validação - HTML</button>
+
 </body>
 </html>
