@@ -28,17 +28,19 @@
         .button:hover {
             background-color: #45a049;
         }
-        #code-container {
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-            white-space: pre-wrap;
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+        .column {
+            width: 45%;
+            padding: 10px;
             text-align: left;
-            font-family: monospace;
-            max-height: 400px;
-            overflow-y: auto;
-            display: none;
+        }
+        .column h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -46,64 +48,69 @@
 
     <h1>Menu de Atividades</h1>
 
-    <!-- Botões para cada arquivo -->
-    <button class="button" onclick="showCode('Ex010.py')">Ex010.py</button>
-    <button class="button" onclick="showCode('atividade1.py')">atividade1.py</button>
-    <button class="button" onclick="showCode('atividade2.py')">atividade2.py</button>
-    <button class="button" onclick="showCode('chute.py')">chute.py</button>
-    <button class="button" onclick="showCode('chute2.py')">chute2.py</button>
-    <button class="button" onclick="showCode('chutecerto.py')">chutecerto.py</button>
-    <button class="button" onclick="showCode('ex00.py')">ex00.py</button>
-    <button class="button" onclick="showCode('ex001.py')">ex001.py</button>
-    <button class="button" onclick="showCode('ex002.py')">ex002.py</button>
-    <button class="button" onclick="showCode('ex003.py')">ex003.py</button>
-    <button class="button" onclick="showCode('ex004.py')">ex004.py</button>
-    <button class="button" onclick="showCode('ex005.py')">ex005.py</button>
-    <button class="button" onclick="showCode('ex006.py')">ex006.py</button>
-    <button class="button" onclick="showCode('ex007.py')">ex007.py</button>
-    <button class="button" onclick="showCode('ex008.py')">ex008.py</button>
-    <button class="button" onclick="showCode('ex009.py')">ex009.py</button>
-    <button class="button" onclick="showCode('ex019-n_int.py')">ex019-n_int.py</button>
-    <button class="button" onclick="showCode('ex020_jogo.py')">ex020_jogo.py</button>
-    
-    <!-- Outros arquivos que não são Python, abrindo normalmente -->
-    <button class="button" onclick="window.location.href='Exemplo-let certo.js'">Exemplo-let certo.js</button>
-    <button class="button" onclick="window.location.href='Exemplo-let erro.js'">Exemplo-let erro.js</button>
-    <button class="button" onclick="window.location.href='Exercícios python.pdf'">Exercícios python.pdf</button>
-    <button class="button" onclick="window.location.href='Front1.html'">Front1.html</button>
-    <button class="button" onclick="window.location.href='Front2.html'">Front2.html</button>
-    <button class="button" onclick="window.location.href='carro1.webp'">carro1.webp</button>
-    <button class="button" onclick="window.location.href='carro2.jpg'">carro2.jpg</button>
-    <button class="button" onclick="window.location.href='imc.html'">imc.html</button>
-    <button class="button" onclick="window.location.href='jogo2D.html'">jogo2D.html</button>
+    <div class="container">
+        <!-- Coluna de Códigos Python -->
+        <div class="column">
+            <h2>Códigos Py</h2>
+            <button class="button" onclick="window.location.href='Ex010.py'">Ex010.py</button>
+            <button class="button" onclick="window.location.href='atividade1.py'">atividade1.py</button>
+            <button class="button" onclick="window.location.href='atividade2.py'">atividade2.py</button>
+            <button class="button" onclick="window.location.href='chute.py'">chute.py</button>
+            <button class="button" onclick="window.location.href='chute2.py'">chute2.py</button>
+            <button class="button" onclick="window.location.href='chutecerto.py'">chutecerto.py</button>
+            <button class="button" onclick="window.location.href='ex00.py'">ex00.py</button>
+            <button class="button" onclick="window.location.href='ex001.py'">ex001.py</button>
+            <button class="button" onclick="window.location.href='ex002.py'">ex002.py</button>
+            <button class="button" onclick="window.location.href='ex003.py'">ex003.py</button>
+            <button class="button" onclick="window.location.href='ex004.py'">ex004.py</button>
+            <button class="button" onclick="window.location.href='ex005.py'">ex005.py</button>
+            <button class="button" onclick="window.location.href='ex006.py'">ex006.py</button>
+            <button class="button" onclick="window.location.href='ex007.py'">ex007.py</button>
+            <button class="button" onclick="window.location.href='ex008.py'">ex008.py</button>
+            <button class="button" onclick="window.location.href='ex009.py'">ex009.py</button>
+            <button class="button" onclick="window.location.href='ex013.py'">ex013.py</button>
+            <button class="button" onclick="window.location.href='ex019-n_int.py'">ex019-n_int.py</button>
+            <button class="button" onclick="window.location.href='ex020_jogo.py'">ex020_jogo.py</button>
+            <button class="button" onclick="window.location.href='ex021.py'">ex021.py</button>
+            <button class="button" onclick="window.location.href='ex022.py'">ex022.py</button>
+            <button class="button" onclick="window.location.href='ex023.py'">ex023.py</button>
+            <button class="button" onclick="window.location.href='ex17_mediaaluno.py'">ex17_mediaaluno.py</button>
+            <button class="button" onclick="window.location.href='ex18_.py'">ex18_.py</button>
+        </div>
 
-    <!-- Container para exibir o código Python -->
-    <div id="code-container"></div>
-
-    <script>
-        function showCode(filename) {
-            // Verificar se o arquivo é Python
-            if (filename.endsWith('.py')) {
-                fetch(filename)
-                    .then(response => {
-                        if (response.ok) {
-                            return response.text();
-                        }
-                        throw new Error('Arquivo não encontrado');
-                    })
-                    .then(code => {
-                        document.getElementById('code-container').style.display = 'block';
-                        document.getElementById('code-container').textContent = code;
-                    })
-                    .catch(error => {
-                        alert('Erro ao carregar o arquivo: ' + error);
-                    });
-            } else {
-                // Se não for um arquivo Python, abre normalmente
-                window.location.href = filename;
-            }
-        }
-    </script>
+        <!-- Coluna de Outros Arquivos -->
+        <div class="column">
+            <h2>Outros Arquivos</h2>
+            <button class="button" onclick="window.location.href='A programação Backend será substituída por IA.pdf'">A programação Backend será substituída por IA.pdf</button>
+            <button class="button" onclick="window.location.href='Analisando Apps.pdf'">Analisando Apps.pdf</button>
+            <button class="button" onclick="window.location.href='Exemplo-let certo.js'">Exemplo-let certo.js</button>
+            <button class="button" onclick="window.location.href='Exemplo-let erro.js'">Exemplo-let erro.js</button>
+            <button class="button" onclick="window.location.href='Exercícios python.pdf'">Exercícios python.pdf</button>
+            <button class="button" onclick="window.location.href='Front1.html'">Front1.html</button>
+            <button class="button" onclick="window.location.href='Front2.html'">Front2.html</button>
+            <button class="button" onclick="window.location.href='Front3.html'">Front3.html</button>
+            <button class="button" onclick="window.location.href='abracadabra.html'">abracadabra.html</button>
+            <button class="button" onclick="window.location.href='aluguel.html'">aluguel.html</button>
+            <button class="button" onclick="window.location.href='aluno.js'">aluno.js</button>
+            <button class="button" onclick="window.location.href='atividade1.js'">atividade1.js</button>
+            <button class="button" onclick="window.location.href='análise simplista.rtf'">análise simplista.rtf</button>
+            <button class="button" onclick="window.location.href='atv0804.html'">atv0804.html</button>
+            <button class="button" onclick="window.location.href='aula18-02.html'">aula18-02.html</button>
+            <button class="button" onclick="window.location.href='aula18-02.js'">aula18-02.js</button>
+            <button class="button" onclick="window.location.href='aula6-03.html'">aula6-03.html</button>
+            <button class="button" onclick="window.location.href='backend.7z'">backend.7z</button>
+            <button class="button" onclick="window.location.href='calculadora.css'">calculadora.css</button>
+            <button class="button" onclick="window.location.href='calculadora.html'">calculadora.html</button>
+            <button class="button" onclick="window.location.href='carro1.webp'">carro1.webp</button>
+            <button class="button" onclick="window.location.href='carro2.jpg'">carro2.jpg</button>
+            <button class="button" onclick="window.location.href='carro2.webp'">carro2.webp</button>
+            <button class="button" onclick="window.location.href='castanhos.jpg'">castanhos.jpg</button>
+            <button class="button" onclick="window.location.href='cliente.js'">cliente.js</button>
+            <button class="button" onclick="window.location.href='jogo2D.html'">jogo2D.html</button>
+            <button class="button" onclick="window.location.href='jogo2D.zip'">jogo2D.zip</button>
+            <button class="button" onclick="window.location.href='jogoPONG.py'">jogoPONG.py</button>
+        </div>
+    </div>
 
 </body>
 </html>
