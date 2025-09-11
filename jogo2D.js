@@ -37,6 +37,12 @@ let leftPressed = false;
 let score = 0;
 let gameOver = false;
 
+// Sons
+const backgroundSound = new Audio("somfundo.mp3");
+const collisionSound = new Audio("sombatida.mp3");
+const gameOverSound = new Audio("somgameover.mp3");
+const victorySound = new Audio("somvitoria.mp3");
+
 // Função de controle do teclado
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -46,6 +52,12 @@ function keyDownHandler(e) {
     rightPressed = true;
   } else if (e.key == "Left" || e.key == "ArrowLeft") {
     leftPressed = true;
+  }
+
+  // Começar o som de fundo ao pressionar qualquer tecla para jogar
+  if (!backgroundSound.isPlaying) {
+    backgroundSound.loop = true; // Loop do som de fundo
+    backgroundSound.play();
   }
 }
 
@@ -75,7 +87,6 @@ function drawTrack() {
 
 // Função para desenhar o carrinho (agora mais bonitinho)
 function drawCar() {
-  // Corpo do carro (forma arredondada)
   ctx.beginPath();
   ctx.moveTo(carX + 10, carY); // Começo do desenho
   ctx.lineTo(carX + carWidth - 10, carY); // Linha superior
@@ -154,6 +165,7 @@ function checkCollisions() {
       carY < obstacle.y + obstacleHeight &&
       carY + carHeight > obstacle.y
     ) {
+      collisionSound.play(); // Som de colisão
       gameOver = true; // Se houve colisão, o jogo acaba
     }
   }
@@ -187,6 +199,9 @@ function draw() {
     ctx.fillText("GAME OVER!", canvas.width / 2 - 100, canvas.height / 2 - 50);
     ctx.font = "24px Arial";
     ctx.fillText("Pontuação final: " + score, canvas.width / 2 - 90, canvas.height / 2);
+
+    // Tocar som de Game Over
+    gameOverSound.play();
 
     // Botão para reiniciar o jogo
     const restartButton = document.createElement("button");
