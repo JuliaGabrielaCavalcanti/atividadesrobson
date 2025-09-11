@@ -17,8 +17,8 @@ const trackHeight = canvas.height; // A pista vai ter a altura total da tela
 const trackX = (canvas.width - trackWidth) / 2; // Centraliza a pista na tela
 
 // Parâmetros do carrinho
-const carWidth = 80;
-const carHeight = 40;
+const carWidth = 40;  // Largura do carro
+const carHeight = 80; // Altura do carro
 const carSpeed = 5;
 let carX = trackX + (trackWidth / 2) - (carWidth / 2); // Inicia o carrinho no centro da pista
 let carY = canvas.height - carHeight - 20; // Carrinho fica um pouco acima do fundo
@@ -85,36 +85,15 @@ function drawTrack() {
   ctx.setLineDash([]); // Reseta o estilo de linha
 }
 
-// Função para desenhar o carrinho (agora mais bonitinho)
+// Função para desenhar o carrinho (mantendo a orientação vertical)
 function drawCar() {
+  // Carro é desenhado como um retângulo com rodas
   ctx.beginPath();
-  ctx.moveTo(carX + 10, carY); // Começo do desenho
-  ctx.lineTo(carX + carWidth - 10, carY); // Linha superior
-  ctx.quadraticCurveTo(carX + carWidth, carY, carX + carWidth, carY + 10); // Curvando a borda direita
-  ctx.lineTo(carX + carWidth, carY + carHeight - 10); // Linha inferior direita
-  ctx.quadraticCurveTo(carX + carWidth, carY + carHeight, carX + carWidth - 10, carY + carHeight); // Curvando a borda inferior direita
-  ctx.lineTo(carX + 10, carY + carHeight); // Linha inferior esquerda
-  ctx.quadraticCurveTo(carX, carY + carHeight, carX, carY + carHeight - 10); // Curvando a borda inferior esquerda
-  ctx.lineTo(carX, carY + 10); // Linha superior esquerda
-  ctx.quadraticCurveTo(carX, carY, carX + 10, carY); // Curvando a borda superior
-  ctx.closePath();
-  ctx.fillStyle = "#3498db"; // Cor do carrinho (azul bonito)
-  ctx.fill();
-
-  // Janela do carro
-  ctx.beginPath();
-  ctx.rect(carX + 15, carY + 10, carWidth - 30, carHeight / 2 - 10); // Janela central
-  ctx.fillStyle = "#ffffff"; // Cor da janela
+  ctx.rect(carX, carY, carWidth, carHeight); // Desenha o corpo do carro
+  ctx.fillStyle = "#3498db"; // Cor do carro (azul bonito)
   ctx.fill();
   ctx.closePath();
 
-  // Rodas (utilizando círculos)
-  ctx.beginPath();
-  ctx.arc(carX + 20, carY + carHeight, 10, 0, Math.PI * 2); // Roda esquerda
-  ctx.arc(carX + carWidth - 20, carY + carHeight, 10, 0, Math.PI * 2); // Roda direita
-  ctx.fillStyle = "#34495e"; // Cor das rodas (preto escurinho)
-  ctx.fill();
-  ctx.closePath();
 }
 
 // Função para desenhar os obstáculos
@@ -199,7 +178,6 @@ function draw() {
     ctx.fillText("GAME OVER!", canvas.width / 2 - 100, canvas.height / 2 - 50);
     ctx.font = "24px Arial";
     ctx.fillText("Pontuação final: " + score, canvas.width / 2 - 90, canvas.height / 2);
-
     // Tocar som de Game Over
     gameOverSound.play();
 
@@ -212,12 +190,10 @@ function draw() {
     restartButton.style.transform = "translateX(-50%)";
     restartButton.style.fontSize = "20px";
     document.body.appendChild(restartButton);
-
     restartButton.onclick = function () {
       document.body.removeChild(restartButton);
       restartGame();
     };
-
     return;
   }
 
@@ -233,7 +209,6 @@ function draw() {
   drawObstacles();
   drawScore();
   checkCollisions();
-
   requestAnimationFrame(draw); // Atualiza o jogo continuamente
 }
 
